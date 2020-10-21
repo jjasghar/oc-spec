@@ -41,7 +41,7 @@ go version
 make GO_REQUIRED_MIN_VERSION:= oc
 
 %install
-install -m 0755 -vd oc %{buildroot}%{_bindir}
+install -p -m 0755 oc %{buildroot}%{_bindir}
 
 %files
 %{_bindir}/oc
