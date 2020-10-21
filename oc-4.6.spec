@@ -28,7 +28,7 @@ with an OpenShift cluster.
 %setup -q -n oc-%{commit}
 
 %build
-dnf install go
+dnf install go -y
 echo "GOLANG DEBUG OUTPUT"
 go version
 mkdir -p $HOME/go
