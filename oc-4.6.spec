@@ -32,6 +32,9 @@ with an OpenShift cluster.
 
 %prep
 %setup -q -n oc-%{commit}
+%goprep
+%generate_buildrequires
+
 
 %build
 echo "GOLANG DEBUG OUTPUT"
