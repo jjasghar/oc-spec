@@ -32,7 +32,6 @@ with an OpenShift cluster.
 
 %prep
 %setup -q -n oc-%{commit}
-sudo dnf install krb5-devel git -y
 %generate_buildrequires
 
 
