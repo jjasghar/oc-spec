@@ -18,7 +18,6 @@ Summary:        origin-cli to interface with OpenShift Clusters
 License:       Apache-v2
 URL:           https://%{import_path}
 Source0:       https://%{import_path}/archive/%{commit}/%{name}-%{sversion}.tar.gz
-#BuildRequires: go-rpm-macros
 
 
 %description
@@ -32,6 +31,7 @@ with an OpenShift cluster.
 
 %prep
 %setup -q -n oc-%{commit}
+sudo dnf install krb5-devel git -y
 %generate_buildrequires
 
 
