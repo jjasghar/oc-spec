@@ -18,6 +18,7 @@ Summary:        origin-cli to interface with OpenShift Clusters
 License:       Apache-v2
 URL:           https://%{import_path}
 Source0:       https://%{import_path}/archive/%{commit}/%{name}-%{sversion}.tar.gz
+BuildRequires: git,krb5-devel
 
 
 %description
