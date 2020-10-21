@@ -38,7 +38,7 @@ with an OpenShift cluster.
 %build
 echo "GOLANG DEBUG OUTPUT"
 go version
-GO_REQUIRED_MIN_VERSION:= make oc
+make GO_REQUIRED_MIN_VERSION:= oc
 
 %install
 install -m 0755 -vd oc %{buildroot}%{_bindir}
