@@ -31,7 +31,7 @@ with an OpenShift cluster.
 %gopkg
 
 %prep
-%goprep
+%setup -q -n oc-%{commit}
 
 %build
 echo "GOLANG DEBUG OUTPUT"
