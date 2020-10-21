@@ -18,7 +18,7 @@ Summary:        origin-cli to interface with OpenShift Clusters
 License:       Apache-v2
 URL:           https://%{import_path}
 Source0:       https://%{import_path}/archive/%{commit}/%{name}-%{sversion}.tar.gz
-BuildRequires: go-rpm-macros
+#BuildRequires: go-rpm-macros
 
 
 %description
