@@ -27,7 +27,7 @@
 %global make %{os_git_vars} && make SOURCE_GIT_TAG:="${OS_GIT_VERSION}" SOURCE_GIT_COMMIT:="${OS_GIT_COMMIT}" SOURCE_GIT_MAJOR:="${OS_GIT_MAJOR}" SOURCE_GIT_MINOR:="${OS_GIT_MINOR}" SOURCE_GIT_TREE_STATE:="${OS_GIT_TREE_STATE}"
 %endif
 
-Name:           openshift-client
+Name:           oc-%{version}
 Version:        %{version}
 Release:        %{release}%{dist}
 Summary:        OpenShift client binaries
