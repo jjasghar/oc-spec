@@ -8,12 +8,12 @@
 
 %global golang_version 1.13
 
-%{!?version: %global version 0.0.1}
+%{!?version: %global version 4.6}
 %{!?release: %global release 1}
 
 %{!?commit:
 # DO NOT MODIFY: the value on the line below is sed-like replaced by openshift/doozer
-%global commit e0a5699f2049372633b18c43a98a522999b1f297
+%global commit 074039a0a9c137967fba3e667b9849d60e5054d8
 }
 
 %if ! 0%{?os_git_vars:1}
@@ -27,7 +27,7 @@
 %global make %{os_git_vars} && make SOURCE_GIT_TAG:="${OS_GIT_VERSION}" SOURCE_GIT_COMMIT:="${OS_GIT_COMMIT}" SOURCE_GIT_MAJOR:="${OS_GIT_MAJOR}" SOURCE_GIT_MINOR:="${OS_GIT_MINOR}" SOURCE_GIT_TREE_STATE:="${OS_GIT_TREE_STATE}"
 %endif
 
-Name:           openshift-clients
+Name:           openshift-client
 Version:        %{version}
 Release:        %{release}%{dist}
 Summary:        OpenShift client binaries
