@@ -94,7 +94,7 @@ GOARCH=arm64
 GOOS=linux
 GOARCH=s390x
 %endif
-%{make} oc GO_BUILD_PACKAGES:='./cmd/oc ./tools/genman'
+%{make} oc GO_REQUIRED_MIN_VERSION:= GO_BUILD_PACKAGES:='./cmd/oc ./tools/genman'
 
 %ifarch x86_64
   # Create Binaries for all supported arches
