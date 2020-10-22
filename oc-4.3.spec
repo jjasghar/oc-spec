@@ -18,7 +18,7 @@ Summary:        origin-cli to interface with OpenShift Clusters
 License:       Apache-v2
 URL:           https://%{import_path}
 Source0:       https://%{import_path}/archive/%{commit}/%{name}-%{sversion}.tar.gz
-BuildRequires: git,krb5-devel
+BuildRequires: git,krb5-devel,go
 
 
 %description
@@ -32,7 +32,6 @@ with an OpenShift cluster.
 
 %prep
 %setup -q -n oc-%{commit}
-%generate_buildrequires
 
 
 %build
@@ -41,11 +40,11 @@ go version
 make GO_REQUIRED_MIN_VERSION:= oc
 
 %install
+mkdir -p %{buildroot}%{_bindir}
 install -p -m 0755 oc %{buildroot}%{_bindir}
 
 %files
 %{_bindir}/oc
-%license %{golicenses}
 
 
 %changelog
