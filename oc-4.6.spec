@@ -46,7 +46,6 @@ install -p -m 0755 oc %{buildroot}%{_bindir}
 
 %files
 %{_bindir}/oc
-%license %{golicenses}
 
 
 %changelog
