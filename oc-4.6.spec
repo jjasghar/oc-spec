@@ -32,7 +32,6 @@ with an OpenShift cluster.
 
 %prep
 %setup -q -n oc-%{commit}
-%generate_buildrequires
 
 
 %build
