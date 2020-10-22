@@ -6,7 +6,7 @@
 %global import_path github.com/openshift/oc
 %global golang_version 1.10
 
-%global commit 83fb70bfe5c6ef0e0886923c90015a4256bc
+%global commit 3f6a83fb70bfe5c6ef0e0886923c90015a4256bc
 %global sversion %{version}
 %global golicenses LICENCE
 
