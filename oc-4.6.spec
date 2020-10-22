@@ -66,7 +66,7 @@ Obsoletes:      atomic-openshift-clients-redistributable <= %{version}
 
 %prep
 %if ! 0%{?local_build:1}
-%setup -q
+%setup -q -n oc-%{commit}
 %endif
 
 %build
