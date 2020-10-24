@@ -13,7 +13,7 @@
 
 %{!?commit:
 # DO NOT MODIFY: the value on the line below is sed-like replaced by openshift/doozer
-%global commit 657671383e03d9ef22c01fb7202fa44ce0a71e18
+%global commit 7b3fb8676abf29200a732676477c96f095a9fb27
 }
 
 %if ! 0%{?os_git_vars:1}
@@ -27,7 +27,7 @@
 %global make %{os_git_vars} && make SOURCE_GIT_TAG:="${OS_GIT_VERSION}" SOURCE_GIT_COMMIT:="${OS_GIT_COMMIT}" SOURCE_GIT_MAJOR:="${OS_GIT_MAJOR}" SOURCE_GIT_MINOR:="${OS_GIT_MINOR}" SOURCE_GIT_TREE_STATE:="${OS_GIT_TREE_STATE}"
 %endif
 
-Name:           oc-%{version}
+Name:           oc
 Version:        %{version}
 Release:        %{release}%{dist}
 Summary:        OpenShift client binaries
