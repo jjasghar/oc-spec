@@ -48,6 +48,7 @@ ExclusiveArch:  x86_64 aarch64 ppc64le s390x
 BuildRequires:  golang >= %{golang_version}
 BuildRequires:  krb5-devel
 BuildRequires:  rsync
+BuildRequires:  git
 
 Provides:       atomic-openshift-clients = %{version}
 Obsoletes:      atomic-openshift-clients <= %{version}
@@ -103,11 +104,6 @@ GOARCH=s390x
 
 %install
 install -d %{buildroot}%{_bindir}
-
-# Install for the local platform
-install -p -m 755 ./oc %{buildroot}%{_bindir}/oc
-ln -s ./oc %{buildroot}%{_bindir}/kubectl
-[[ -e %{buildroot}%{_bindir}/kubectl ]]
 
 %ifarch x86_64
 # Install client executable for windows and mac
