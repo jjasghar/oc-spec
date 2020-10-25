@@ -123,14 +123,14 @@ ln -s ./oc.exe %{buildroot}/%{_datadir}/%{name}/windows/kubectl.exe
 install -d -m 0755 %{buildroot}%{_mandir}/man1
 ./genman %{buildroot}%{_mandir}/man1 oc
 
- # Install bash completions
-install -d -m 755 %{buildroot}%{_sysconfdir}/bash_completion.d/
-for bin in oc kubectl
-do
-  echo "+++ INSTALLING BASH COMPLETIONS FOR ${bin} "
-  %{buildroot}%{_bindir}/${bin} completion bash > %{buildroot}%{_sysconfdir}/bash_completion.d/${bin}
-  chmod 644 %{buildroot}%{_sysconfdir}/bash_completion.d/${bin}
-done
+#  # Install bash completions
+# install -d -m 755 %{buildroot}%{_sysconfdir}/bash_completion.d/
+# for bin in oc kubectl
+# do
+#   echo "+++ INSTALLING BASH COMPLETIONS FOR ${bin} "
+#   %{buildroot}%{_bindir}/${bin} completion bash > %{buildroot}%{_sysconfdir}/bash_completion.d/${bin}
+#   chmod 644 %{buildroot}%{_sysconfdir}/bash_completion.d/${bin}
+# done
 
 %files
 %license LICENSE
