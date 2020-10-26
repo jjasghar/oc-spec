@@ -135,9 +135,9 @@ install -d -m 0755 %{buildroot}%{_mandir}/man1
 %files
 %license LICENSE
 %{_bindir}/oc
-%{_bindir}/kubectl
-%{_sysconfdir}/bash_completion.d/oc
-%{_sysconfdir}/bash_completion.d/kubectl
+# %{_bindir}/kubectl
+# %{_sysconfdir}/bash_completion.d/oc
+# %{_sysconfdir}/bash_completion.d/kubectl
 %dir %{_mandir}/man1/
 %{_mandir}/man1/oc*
 
