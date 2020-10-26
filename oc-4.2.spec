@@ -21,15 +21,15 @@
 %global os_git_vars OS_GIT_VERSION='' OS_GIT_COMMIT='' OS_GIT_MAJOR='' OS_GIT_MINOR='' OS_GIT_TREE_STATE=''
 %endif
 
-export OS_GIT_VERSION=$(git --version | awk {'print $NF'})
-export OS_GIT_COMMIT=$(git rev-parse HEAD)
-export OS_GIT_MAJOR=$(git --version | awk -F '.' {'print $1'} | awk {'print $NF'})
-export OS_GIT_MINOR=$(git --version | awk -F '.' {'print $1'}
-if $(git diff --quiet); then
-  export OS_GIT_TREE_STATE=clean
-else
-  export OS_GIT_TREE_STATE=dirty
-fi
+#export OS_GIT_VERSION=$(git --version | awk {'print $NF'})
+#export OS_GIT_COMMIT=$(git rev-parse HEAD)
+#export OS_GIT_MAJOR=$(git --version | awk -F '.' {'print $1'} | awk {'print $NF'})
+#export OS_GIT_MINOR=$(git --version | awk -F '.' {'print $1'}
+#if $(git diff --quiet); then
+#  export OS_GIT_TREE_STATE=clean
+#else
+#  export OS_GIT_TREE_STATE=dirty
+#fi
 
 %if "%{os_git_vars}" == "ignore"
 %global make make
