@@ -127,10 +127,36 @@ ln -s ./oc.exe %{buildroot}/%{_datadir}/%{name}/windows/kubectl.exe
 install -d -m 0755 %{buildroot}%{_mandir}/man1
 ./genman %{buildroot}%{_mandir}/man1 oc
 
+# Install bash completions
+install -d -m 755 %{buildroot}%{_sysconfdir}/bash_completion.d/
+for bin in oc kubectl
+do
+  echo "+++ INSTALLING BASH COMPLETIONS FOR ${bin} "
+  %{buildroot}%{_bindir}/${bin} completion bash > %{buildroot}%{_sysconfdir}/bash_completion.d/${bin}
+  chmod 644 %{buildroot}%{_sysconfdir}/bash_completion.d/${bin}
+done
+
 %files
 %license LICENSE
 %{_bindir}/oc
+%{_bindir}/kubectl
+%{_sysconfdir}/bash_completion.d/oc
+%{_sysconfdir}/bash_completion.d/kubectl
 %dir %{_mandir}/man1/
 %{_mandir}/man1/oc*
+
+%ifarch x86_64
+%files redistributable
+%license LICENSE
+%dir %{_datadir}/%{name}/linux/
+%dir %{_datadir}/%{name}/macosx/
+%dir %{_datadir}/%{name}/windows/
+%{_datadir}/%{name}/linux/oc
+%{_datadir}/%{name}/linux/kubectl
+%{_datadir}/%{name}/macosx/oc
+%{_datadir}/%{name}/macosx/kubectl
+%{_datadir}/%{name}/windows/oc.exe
+%{_datadir}/%{name}/windows/kubectl.exe
+%endif
 
 %changelog
