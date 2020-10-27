@@ -149,14 +149,6 @@ fi
 %license LICENSE
 %{_bindir}/oc
 
-%files redistributables
-%license LICENSE
-%{_bindir}/kubectl
-%{_sysconfdir}/bash_completion.d/oc
-%{_sysconfdir}/bash_completion.d/kubectl
-%dir %{_mandir}/man1/
-%{_mandir}/man1/oc*
-
 %ifarch x86_64
 %files redistributable
 %license LICENSE
