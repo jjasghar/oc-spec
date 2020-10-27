@@ -132,13 +132,15 @@ if [ -f ./genman ]; then
   ./genman %{buildroot}%{_mandir}/man1 oc
 fi
 # Install bash completions
-install -d -m 755 %{buildroot}%{_sysconfdir}/bash_completion.d/
-for bin in oc kubectl
-do
-  echo "+++ INSTALLING BASH COMPLETIONS FOR ${bin} "
-  %{buildroot}%{_bindir}/${bin} completion bash > %{buildroot}%{_sysconfdir}/bash_completion.d/${bin}
-  chmod 644 %{buildroot}%{_sysconfdir}/bash_completion.d/${bin}
-done
+if [ -f ./oc ]; then
+  install -d -m 755 %{buildroot}%{_sysconfdir}/bash_completion.d/
+  for bin in oc kubectl
+  do
+    echo "+++ INSTALLING BASH COMPLETIONS FOR ${bin} "
+    %{buildroot}%{_bindir}/${bin} completion bash > %{buildroot}%{_sysconfdir}/bash_completion.d/${bin}
+    chmod 644 %{buildroot}%{_sysconfdir}/bash_completion.d/${bin}
+  done
+fi
 
 %files
 %license LICENSE
