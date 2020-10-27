@@ -78,6 +78,9 @@ ln -s "$(pwd)" "__gopath/src/%{import_path}"
 export GOPATH=$(pwd)/__gopath:%{gopath}
 cd "__gopath/src/%{import_path}"
 %endif
+export SOURCE_GIT_COMMIT=%{commit}
+export SOURCE_GIT_TAG=%{nvt} 
+export SOURCE_GIT_TREE_STATE=clean
 
 %ifarch %{ix86}
 GOOS=linux
@@ -144,14 +147,15 @@ fi
 
 %files
 %license LICENSE
-%if ! 0%{?local_build:1}
-  %{_bindir}/oc
-  %{_bindir}/kubectl
-  %{_sysconfdir}/bash_completion.d/oc
-  %{_sysconfdir}/bash_completion.d/kubectl
-  %dir %{_mandir}/man1/
-  %{_mandir}/man1/oc*
-%endif
+%{_bindir}/oc
+
+%files redistributables
+%license LICENSE
+%{_bindir}/kubectl
+%{_sysconfdir}/bash_completion.d/oc
+%{_sysconfdir}/bash_completion.d/kubectl
+%dir %{_mandir}/man1/
+%{_mandir}/man1/oc*
 
 %ifarch x86_64
 %files redistributable
