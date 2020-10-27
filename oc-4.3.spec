@@ -128,8 +128,9 @@ fi
 
 # Install man1 man pages
 install -d -m 0755 %{buildroot}%{_mandir}/man1
-./genman %{buildroot}%{_mandir}/man1 oc
-
+if [ -f ./genman ]; then
+  ./genman %{buildroot}%{_mandir}/man1 oc
+fi
 # Install bash completions
 install -d -m 755 %{buildroot}%{_sysconfdir}/bash_completion.d/
 for bin in oc kubectl
