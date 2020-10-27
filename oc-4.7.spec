@@ -13,7 +13,7 @@
 
 %{!?commit:
 # DO NOT MODIFY: the value on the line below is sed-like replaced by openshift/doozer
-%global commit 7b3fb8676abf29200a732676477c96f095a9fb27
+%global commit af3b91b85cf70bffdc2d202b1b320adbad963549
 }
 
 %if ! 0%{?os_git_vars:1}
