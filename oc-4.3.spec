@@ -104,9 +104,11 @@ GOARCH=s390x
 
 %install
 install -d %{buildroot}%{_bindir}
-install -p -m 755 ./cmd/oc %{buildroot}%{_bindir}/oc
-ln -s ./oc %{buildroot}%{_bindir}/kubectl
-[[ -e %{buildroot}%{_bindir}/kubectl ]]
+if [ -f ./oc ]; then
+  install -p -m 755 ./oc %{buildroot}%{_bindir}/oc
+  ln -s ./oc %{buildroot}%{_bindir}/kubectl
+  [[ -e %{buildroot}%{_bindir}/kubectl ]]
+fi
 
 %ifarch x86_64
 # Install client executable for windows and mac
