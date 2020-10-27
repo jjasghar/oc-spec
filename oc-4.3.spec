@@ -112,6 +112,9 @@ if [ -f ./oc ]; then
   ln -s ./oc %{buildroot}%{_bindir}/kubectl
   [[ -e %{buildroot}%{_bindir}/kubectl ]]
 fi
+if [ -f ./cmd/oc ]; then
+  install -p -m 755 ./cmd/oc %{buildroot}%{_bindir}/oc
+fi
 
 %ifarch x86_64
 # Install client executable for windows and mac
