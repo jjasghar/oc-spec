@@ -144,14 +144,14 @@ fi
 
 %files
 %license LICENSE
-if [ -f ./oc ]; then
+%if ! 0%{?local_build:1}
   %{_bindir}/oc
   %{_bindir}/kubectl
   %{_sysconfdir}/bash_completion.d/oc
   %{_sysconfdir}/bash_completion.d/kubectl
   %dir %{_mandir}/man1/
   %{_mandir}/man1/oc*
-fi
+%endif
 
 %ifarch x86_64
 %files redistributable
