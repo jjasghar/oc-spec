@@ -144,12 +144,14 @@ fi
 
 %files
 %license LICENSE
-%{_bindir}/oc
-%{_bindir}/kubectl
-%{_sysconfdir}/bash_completion.d/oc
-%{_sysconfdir}/bash_completion.d/kubectl
-%dir %{_mandir}/man1/
-%{_mandir}/man1/oc*
+if [ -f ./oc ]; then
+  %{_bindir}/oc
+  %{_bindir}/kubectl
+  %{_sysconfdir}/bash_completion.d/oc
+  %{_sysconfdir}/bash_completion.d/kubectl
+  %dir %{_mandir}/man1/
+  %{_mandir}/man1/oc*
+fi
 
 %ifarch x86_64
 %files redistributable
