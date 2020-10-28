@@ -103,8 +103,14 @@ GOARCH=s390x
 
 %install
 install -d %{buildroot}%{_bindir}
-
-
+if [ -f ./oc ]; then
+  install -p -m 755 ./oc %{buildroot}%{_bindir}/oc
+  ln -s ./oc %{buildroot}%{_bindir}/kubectl
+  [[ -e %{buildroot}%{_bindir}/kubectl ]]
+fi
+if [ -f ./cmd/oc ]; then
+  install -p -m 755 ./cmd/oc %{buildroot}%{_bindir}/oc
+fi
 
 # Install man1 man pages
 install -d -m 0755 %{buildroot}%{_mandir}/man1
@@ -113,7 +119,7 @@ install -d -m 0755 %{buildroot}%{_mandir}/man1
 
 %files
 %license LICENSE
-%{_bindir}/oc
+#%{_bindir}/oc
 %dir %{_mandir}/man1/
 %{_mandir}/man1/oc*
 
