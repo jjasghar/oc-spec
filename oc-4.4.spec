@@ -138,5 +138,6 @@ install -d -m 0755 %{buildroot}%{_mandir}/man1
 %{_datadir}/%{name}/macosx/kubectl
 %{_datadir}/%{name}/windows/oc.exe
 %{_datadir}/%{name}/windows/kubectl.exe
+%endif
 
 %changelog
